@@ -1,0 +1,26 @@
+{
+    "name": "david2m/common-domain",
+    "description": "A library containing commonly found files in the domain layer of project following DDD.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "David Twomey",
+            "email": "david2m@hotmail.co.uk"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "David2M\\CommonDomain\\": "src/"
+        }
+    },
+    "require-dev": {
+        "php": ">=7.0.0",
+        "phpunit/phpunit": "^5.5"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\David2M\\CommonDomain\\": "tests/"
+        }
+    }
+}
