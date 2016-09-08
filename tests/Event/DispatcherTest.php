@@ -72,7 +72,7 @@ class DispatcherTest extends TestCase
         $this->dispatcher->dispatch($event);
     }
 
-    public function test_dispatchTwoEvents_twoListenersExistForTwoEvents_callListeners()
+    public function test_dispatchAll_twoListenersExistForTwoEvents_callListeners()
     {
         $eventOne = new \UserSignedUp();
         $mockListenerOne = $this->getMockBuilder(\SendEmailOnUserSignup::class)->getMock();
@@ -90,11 +90,10 @@ class DispatcherTest extends TestCase
         $this->dispatcher->addListener('UserSignedUp', [$mockListenerOne, 'onSignup']);
         $this->dispatcher->addListener('OrderShipped', [$mockListenerTwo, 'onOrderShipped']);
 
-        $this->dispatcher->dispatch($eventOne);
-        $this->dispatcher->dispatch($eventTwo);
+        $this->dispatcher->dispatchAll([$eventOne, $eventTwo]);
     }
 
-    public function test_dispatchTwoEvents_listenerExistsWhichListensForAllEvents_callListenerTwice()
+    public function test_dispatchAll_listenerExistsWhichListensForAllEvents_callListenerTwice()
     {
         $eventOne = new \UserSignedUp();
         $eventTwo = new \OrderShipped();
@@ -111,8 +110,7 @@ class DispatcherTest extends TestCase
 
         $this->dispatcher->addListener('.+', [$mockListener, 'onEvent']);
 
-        $this->dispatcher->dispatch($eventOne);
-        $this->dispatcher->dispatch($eventTwo);
+        $this->dispatcher->dispatchAll([$eventOne, $eventTwo]);
     }
 
 }

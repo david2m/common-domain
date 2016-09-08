@@ -32,6 +32,16 @@ class Dispatcher
     }
 
     /**
+     * @param object[] $events
+     */
+    public function dispatchAll(array $events)
+    {
+        foreach ($events as $event) {
+            $this->dispatch($event);
+        }
+    }
+
+    /**
      * @param string $eventName
      *
      * @return \Generator|callable[]
