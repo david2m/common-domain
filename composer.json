@@ -1,6 +1,6 @@
 {
     "name": "david2m/common-domain",
-    "description": "A library containing commonly found files in the domain layer of project following DDD.",
+    "description": "Mini library of common components found in the domain layer of a project following domain-driven design.",
     "type": "library",
     "license": "MIT",
     "authors": [
